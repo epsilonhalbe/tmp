@@ -1,0 +1,45 @@
+Name:                tmp
+Version:             0.1
+Synopsis:            Project Synopsis Here
+Description:         Project Description Here
+License:             AllRightsReserved
+Author:              Author
+Maintainer:          maintainer@example.com
+Stability:           Experimental
+Category:            Web
+Build-type:          Simple
+Cabal-version:       >=1.2
+
+Flag dev
+  Description: dev mode
+  Default: False
+Flag prd
+  Description: prd mode
+  Default: False
+
+Executable tmp
+  hs-source-dirs: src
+  main-is: Main.hs
+  other-modules: Application
+               , Site
+
+  build-depends: base >= 4.8 && < 4.9
+               , blaze-html
+               , bytestring
+               , heist
+               , lens
+               , MonadCatchIO-transformers
+               , mtl
+               , snap
+               , snap-blaze
+               , snap-core
+               , snap-loader-static
+               , snap-server
+               , text
+               , time
+               , xmlhtml
+
+  if flag(dev)
+    cpp-options: -DDEVELOPMENT
+  if flag(PRD)
+    cpp-options: -DPRODUCTION
