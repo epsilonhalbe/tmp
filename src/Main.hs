@@ -12,7 +12,11 @@ import           Snap.Core
 import           System.IO
 import           Site
 
+#ifdef DEVELOPMENT
+import           Snap.Loader.Dynamic
+#else
 import           Snap.Loader.Static
+#endif
 
 
 main :: IO ()

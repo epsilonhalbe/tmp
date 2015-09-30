@@ -38,8 +38,11 @@ Executable tmp
                , text
                , time
                , xmlhtml
+  ghc-options: -threaded -w
 
   if flag(dev)
     cpp-options: -DDEVELOPMENT
+    build-depends: snap-loader-dynamic
   if flag(PRD)
     cpp-options: -DPRODUCTION
+  
